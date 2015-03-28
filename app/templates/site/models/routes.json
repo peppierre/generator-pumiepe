@@ -1,0 +1,35 @@
+{
+    "intro": "In this sample, there are many routes defined. Here's a list of them:",
+    "routes": [
+        {
+            "name": "Index",
+            "path": "/",
+            "comment": "Predefined route, overwritable"
+        },
+        {
+            "name": "Error",
+            "path": "/error",
+            "comment": "Predefined route, no way to overwrite"
+        },
+        {
+            "name": "Loading",
+            "path": "/loading",
+            "comment": "Predefined route, no way to overwrite"
+        },
+        {
+            "name": "PUMIEPE",
+            "path": "/pumiepe",
+            "comment": "Custom route"
+        },
+        {
+            "name": "Routes",
+            "path": "/routes",
+            "comment": "Custom route"
+        },
+        {
+            "name": "Models",
+            "path": "/models",
+            "comment": "Custom route"
+        }
+    ]
+}

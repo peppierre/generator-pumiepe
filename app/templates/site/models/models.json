@@ -1,0 +1,29 @@
+{
+    "intro": "In this sample, there are many models defined, relating to routes. Here's a list of them:",
+    "models": [
+        {
+            "routename": "Index",
+            "comment": "Static model (aka fixture), defined in main.js."
+        },
+        {
+            "routename": "Error",
+            "comment": "Relevant model structure is predefined."
+        },
+        {
+            "routename": "Loading",
+            "comment": "No relevant model assigned, no way to define"
+        },
+        {
+            "routename": "PUMIEPE",
+            "comment": "No model assigned, relevant page is static"
+        },
+        {
+            "routename": "Routes",
+            "comment": "Model via XHR"
+        },
+        {
+            "routename": "Models",
+            "comment": "Model via XHR"
+        }
+    ]
+}
