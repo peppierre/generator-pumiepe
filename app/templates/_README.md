@@ -1,8 +1,9 @@
 # <%= siteName %>
 
-## Description
+<% if (description.replace(/\s/gi, "") !== "") { %>## Description
 
 <%= description %>
+<% } %>
 
 ## License
 

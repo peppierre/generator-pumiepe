@@ -20,7 +20,10 @@ module.exports = yeoman.generators.Base.extend({
             {
                 type: 'text',
                 name: 'siteName',
-                message: 'What is your site\'s name?'
+                message: 'What is your site\'s name?',
+                validate: function (input) {
+                    return (input.replace(/\s/gi, "") !== "" ? true : "C'mon, give a name!");
+                }
             }, {
                 type: "text",
                 name: 'description',
@@ -30,38 +33,48 @@ module.exports = yeoman.generators.Base.extend({
                 type: "text",
                 name: 'keywords',
                 message: 'Key your keywords (comma to split)'
+            }, {
+                type: "text",
+                name: 'author',
+                message: 'Enter your name',
+                validate: function (input) {
+                    return (input.replace(/\s/gi, "") !== "" ? true : "Don't be serious! Let your user release some pressure and shout: 'XY, you *%$#@&^$%#&!'");
+                }
+            }, {
+                type: "text",
+                name: 'email',
+                message: 'Enter your email'
             }
         ];
 
         this.prompt(prompts, function (props) {
-            this.siteName = props.siteName;
-            this.description = props.description;
-            this.keywords = props.keywords;
-
+            this.conf = {
+                siteName: props.siteName,
+                description: props.description,
+                keywords: props.keywords,
+                author: props.author,
+                email: props.email
+            }
             done();
         }.bind(this));
     },
 
     configuring: {
         app: function () {
-            var config = {
-                "siteName": this.siteName,
-                "description": this.description
-            };
             this.template(
                 this.templatePath('_package.json'),
                 this.destinationPath('package.json'),
-                config
+                this.conf
             );
             this.template(
                 this.templatePath('_bower.json'),
                 this.destinationPath('bower.json'),
-                config
+                this.conf
             );
             this.template(
                 this.templatePath('_README.md'),
                 this.destinationPath('README.md'),
-                config
+                this.conf
             );
         },
 
@@ -94,11 +107,7 @@ module.exports = yeoman.generators.Base.extend({
             this.template(
                 this.templatePath('site/index.html'),
                 this.destinationPath('app/index.html'),
-                {
-                    "siteName": this.siteName,
-                    "description": this.description,
-                    "keywords": this.keywords
-                }
+                this.conf
             );
         }
     },

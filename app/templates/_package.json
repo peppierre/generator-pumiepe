@@ -1,6 +1,11 @@
 {
-    "name": "<%= _.slugify(siteName) %>",
-    "description": "<%= description %>",
+    "name": "<%= _.slugify(siteName) %>",<% if (description.replace(/\s/gi, "") !== "") { %>
+    "description": "<%= description %>",<% } %>
+    "author": {
+        "name": "<%= author %>"<% if (email.replace(/\s/gi, "") !== "") { %>,
+        "email": "<%= email %>"
+        <% } %>
+    },
     "private": true,
     "version": "0.0.0",
     "devDependencies": {

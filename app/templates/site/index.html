@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><%= siteName %></title>
-    <meta name="description" content="<%= description %>">
-    <meta name="keywords" content="<%= keywords %>">
-    <meta name="viewport" content="width=device-width">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <title><%= siteName %></title><% if (description.replace(/\s/gi, "") !== "") { %>
+    <meta name="description" content="<%= description %>"/><% } %><% if (keywords.replace(/\s/gi, "") !== "") { %>
+    <meta name="keywords" content="<%= keywords %>"/><% } %>
+    <meta name="author" content="<%= author %><% if (email.replace(/\s/gi, '') !== '') { %> <<%= email %>><% } %>"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="shortcut icon" href="/favicon.ico"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
