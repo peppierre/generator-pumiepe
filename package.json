@@ -1,35 +1,35 @@
 {
-  "name": "generator-pumiepe",
-  "version": "0.1.1",
-  "description": "Yeoman generator",
-  "license": "MIT",
-  "main": "app/index.js",
-  "repository": "peppierre/generator-pumiepe",
-  "author": {
-    "name": "Peter Abraham",
-    "email": "peppierre@gmail.com",
-    "url": "https://github.com/peppierre"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "scripts": {
-    "test": "mocha"
-  },
-  "files": [
-    "app"
-  ],
-  "keywords": [
-    "yeoman-generator",
-    "pumiepe",
-    "education"
-  ],
-  "dependencies": {
-      "yeoman-generator": "^0.18.10",
-    "chalk": "^1.0.0",
-    "yosay": "^1.0.2"
-  },
-  "devDependencies": {
-    "mocha": "*"
-  }
+    "name": "generator-pumiepe",
+    "version": "0.1.2",
+    "description": "Yeoman generator",
+    "license": "MIT",
+    "main": "app/index.js",
+    "repository": "peppierre/generator-pumiepe",
+    "author": {
+        "name": "Peter Abraham",
+        "email": "peppierre@gmail.com",
+        "url": "https://github.com/peppierre"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "files": [
+        "app"
+    ],
+    "keywords": [
+        "yeoman-generator",
+        "pumiepe",
+        "education"
+    ],
+    "dependencies": {
+        "yeoman-generator": "^0.18.10",
+        "chalk": "^1.0.0",
+        "yosay": "^1.0.2"
+    },
+    "devDependencies": {
+        "mocha": "*"
+    }
 }
