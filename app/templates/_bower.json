@@ -2,7 +2,7 @@
   "name": "<%= _.slugify(siteName) %>c",
   "version": "0.0.0",
   "dependencies": {
-      "pumiepe": "~0.1.3"
+      "pumiepe": "~0.1.4"
   }
 }
 
