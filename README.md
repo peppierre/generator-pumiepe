@@ -1,4 +1,4 @@
-# generator-pumiepe [![Build Status](https://secure.travis-ci.org/peppierre/generator-pumiepe.png?branch=master)](https://travis-ci.org/peppierre/generator-pumiepe)
+# generator-pumiepe
 
 > [Yeoman](http://yeoman.io) generator
 
