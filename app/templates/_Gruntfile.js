@@ -48,6 +48,10 @@ module.exports = function (grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
+            recess: {
+                files: ['<%= config.app %>/assets/styles/{,*/}*.less'],
+                tasks: ['recess:server']
+            },
             styles: {
                 files: ['<%= config.app %>/assets/styles/{,*/}*.css'],
                 tasks: ['newer:copy:styles', 'autoprefixer']
@@ -203,7 +207,10 @@ module.exports = function (grunt) {
                     '<%= config.dist %>/assets/styles'
                 ]
             },
-            html: ['<%= config.dist %>/{,*/}*.html'],
+            html: [
+                '<%= config.dist %>/{,*/}*.html',
+                '<%= config.dist %>/views/{,*/}*.hbs'
+            ],
             css: ['<%= config.dist %>/assets/styles/{,*/}*.css']
         },
 
@@ -336,6 +343,32 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
+        },
+        recess: {
+            options: {
+                compile: true
+            },
+            server: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/assets/styles',
+                    src: '{,*/}*.less',
+                    dest: '<%= config.app %>/assets/styles/',
+                    ext: '.css'
+                }]
+            },
+            dist: {
+                options: {
+                    compress: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= config.app %>/assets/styles',
+                    src: '{,*/}*.less',
+                    dest: '<%= config.dist %>/assets/styles',
+                    ext: '.css'
+                }]
+            }
         }
     });
 
@@ -350,6 +383,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'wiredep',
+            'recess:server',
             'concurrent:server',
             'autoprefixer',
             'connect:livereload',
@@ -366,6 +400,7 @@ module.exports = function (grunt) {
         if (target !== 'watch') {
             grunt.task.run([
                 'clean:server',
+                'recess',
                 'concurrent:test',
                 'autoprefixer'
             ]);
@@ -381,6 +416,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'wiredep',
         'useminPrepare',
+        'recess:dist',
         'concurrent:dist',
         'autoprefixer',
         'concat',
